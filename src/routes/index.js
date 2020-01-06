@@ -32,12 +32,18 @@ router.get('/images-add', async (req, res) => {
 
 router.get('/delete/:id/:id_image', async (req, res) => {
 
-  await Photo.deleteOne({ _id: req.params.id }, (err) => {
+  // await Photo.deleteOne({ _id: req.params.id }, (err) => {
+
+  // Aqui funcion callback
+  // })
+
+  /* PERO ESTO QUEDA MEJOR ASI*/
+  const photoremove = await Photo.findByIdAndRemove(req.params.id);
+  // Y en la constante queda la info de la RTA
 
 
-  })
   await cloudinary.v2.api.delete_resources(req.params.id_image);
-
+  // Lo mismo aca
   res.redirect('/')
 });
 
