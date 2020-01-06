@@ -42,8 +42,6 @@ app.engine(
         // La extension pero arriba tambien esta alpie del engine
       }
 )
-
-
 */
 app.engine('.hbs', exphbs({
   defaultLayout: 'main',
@@ -68,6 +66,9 @@ app.use(express.urlencoded({ extended: false })); // Solo entieda Strings
 const storage = multer.diskStorage({
   destination: path.join(__dirname, 'public/uploads'),
   filename: (req, file, cb) => {
+
+    // console.log("ESTO QUE ", req);
+    // ESO ES UN INFO DE TODO LO QUE HIZO AL SUBIR
 
     // Error, name de la imagen
     // El segundo parametro le coloco una name unico con la extension

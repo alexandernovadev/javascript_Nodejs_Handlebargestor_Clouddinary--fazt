@@ -1,1 +1,70 @@
 {{!-- Para subir las imagenes --}}
+
+<div class="row mt-5">
+  <div class="col-md-4 ">
+
+    <div class="card">
+      <form class="p-3" action="/images/add" method="POST" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Subir Imagen</legend>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Titulo</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="title" placeholder="Titulo Imagen">
+
+          </div>
+          <div class="form-group">
+            <label for="desc">Descripcion</label>
+            <textarea name="description" class="form-control" rows="2"></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" name="image" id="inputGroupFile02" />
+                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text" id="">Upload</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">SUBIR</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <div class="col md-6">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {{#each photos}}
+        <tr>
+          <td>{{@index}}</td>
+          <td>{{title}}</td>
+          <td>{{description}}</td>
+          <td>
+            <a href="{{imageURL}}" class="btn btn-primary" target="_black">
+              VER
+            </a>
+            <a href="/delete/{{_id}}/{{public_id}}" class="btn btn-danger" target="_black">
+              DELETE
+            </a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
