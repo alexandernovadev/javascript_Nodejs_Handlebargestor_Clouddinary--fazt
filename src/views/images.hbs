@@ -1,6 +1,18 @@
 {{!-- Para ver las imagenes --}}
 
 {{!-- Un forecha de handlebar --}}
-{{#each photos}}
+{{!-- {{#each photos}}
   <img src="{{imageURL}}" alt="">
-{{/each}}
+{{/each}} --}}
+
+
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {{#each photos}}
+    <div class="swiper-slide" style="background-image:url({{imageURL}})"></div> 
+    {{!-- <img src="{{imageURL}}" class="swiper-slide" alt="{{title}}"> --}}
+    {{/each}}
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+</div>
