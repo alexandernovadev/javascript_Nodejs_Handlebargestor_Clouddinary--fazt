@@ -10,9 +10,12 @@ const exphbs = require('express-handlebars');
 // Initialization
 
 const app = express();
+// Traer la base de datos
+require('./database');
+
 
 // Settings
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 
 //Le dice donde esta la carpeta de views
 app.set('views', path.join(__dirname, 'views'));
